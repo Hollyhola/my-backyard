@@ -20,4 +20,4 @@ config.plugins.push(new ngtools.AotPlugin({
     typeChecking: false,
 }));
 
-module.exports = config;
+module.exports = config; 
