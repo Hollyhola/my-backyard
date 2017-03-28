@@ -18,7 +18,9 @@ module.exports = {
         modules: [rootDir, 'node_modules', 'src/app'],
         extensions: ['.ts', '.js', '.json', '.css', '.styl', '.vue'],
         mainFiles: ['index', 'main'],
-        // alias: {vue: 'vue/dist/vue.js'}
+        alias: {
+            'vue$': 'vue/dist/vue.js'
+        }
     },
     output: {
         path: path.join(rootDir, 'build', 'dev'),
@@ -27,45 +29,44 @@ module.exports = {
         chunkFilename: '[name].chunk.js'
     },
     module: {
-        loaders: [
-        {
-            test: /\.ts$/,
-            loader: 'awesome-typescript-loader',
-            exclude: [/\.(spec|e2e|d)\.ts$/],
-            options: {
-                appendTsSuffixTo: [/\.vue$/],
+        loaders: [{
+                test: /\.ts$/,
+                loader: 'awesome-typescript-loader',
+                exclude: [/\.(spec|e2e|d)\.ts$/],
+                options: {
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        ts: 'ts-loader'
+                    },
+                    esModule: true
+                }
+            },
+            {
+                test: /\.json$/,
+                loader: 'json-loader'
+            },
+            {
+                test: /\.css$/,
+                loader: 'to-string-loader!css-loader'
+            },
+            {
+                test: /\.styl(us)?$/,
+                loader: 'raw-loader!stylus-loader'
+            },
+            {
+                test: /\.html$/,
+                loader: 'raw-loader'
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'url-loader?limit=10240&name=assets/[hash].[ext]'
             }
-        }, 
-        {
-            test: /\.vue$/,
-            loader: 'vue-loader',
-            options: {
-                loaders: {
-                    ts: 'ts-loader'
-                },
-                esModule: true
-            }
-        },
-        {
-            test: /\.json$/,
-            loader: 'json-loader'
-        },
-        {
-            test: /\.css$/,
-            loader: 'to-string-loader!css-loader'
-        },
-        {
-            test: /\.styl(us)?$/,
-            loader: 'raw-loader!stylus-loader'
-        },
-        {
-            test: /\.html$/,
-            loader: 'raw-loader'
-        },
-        {
-            test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'url-loader?limit=10240&name=assets/[hash].[ext]'
-        }
         ]
     },
     plugins: [
@@ -85,13 +86,13 @@ module.exports = {
          * See: https://www.npmjs.com/package/copy-webpack-plugin
          */
         new CopyWebpackPlugin([{
-            from: 'src/assets',
-            to: 'assets',
-        },
-        // {
-        //     from: 'src/index.css',
-        //     to: '.',
-        // }
+                from: 'src/assets',
+                to: 'assets',
+            },
+            // {
+            //     from: 'src/index.css',
+            //     to: '.',
+            // }
         ]),
         /*
          * Plugin: CommonsChunkPlugin

@@ -19,4 +19,5 @@ config.plugins.push(new ngtools.AotPlugin({
     tsConfigPath: path.join(rootDir, 'tsconfig.aot.json'),
     typeChecking: false,
 }));
+
 module.exports = config;

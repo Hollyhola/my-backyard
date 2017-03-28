@@ -1,12 +1,10 @@
-// import { VueComponent } from 'vue-typescript'
-// import * as Vue from 'vue'
+import { Component } from 'vue-typed'
+import * as Vue from 'vue'
 
-// @VueComponent({
-//     name: 'about',
-//     template: require('./home.html')
-// })
+@Component ({
+    template: `<h2>{{homemsg}}</h2>`
+})
 
-// export class HomeComponent extends Vue {
-//      package:string = 'vue-typescript';
-//     repo:string = 'https://github.com/itsFrank/vue-typescript';
-// }
+export class home {
+    homemsg="this is home page"
+}
