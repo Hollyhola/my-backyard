@@ -2,7 +2,7 @@ import { Component } from 'vue-typed'
 import * as Vue from 'vue'
 
 @Component ({
-    template: `<h2>{{homemsg}}</h2>`
+    template: require('./home.html')
 })
 
 export class home {

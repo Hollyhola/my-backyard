@@ -89,10 +89,10 @@ module.exports = {
                 from: 'src/assets',
                 to: 'assets',
             },
-            // {
-            //     from: 'src/index.css',
-            //     to: '.',
-            // }
+            {
+                from: 'src/assets/style',
+                to: 'assets',
+            }
         ]),
         /*
          * Plugin: CommonsChunkPlugin
