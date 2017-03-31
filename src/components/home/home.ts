@@ -6,5 +6,4 @@ import * as Vue from 'vue'
 })
 
 export class home {
-    homemsg="this is home page"
 }
