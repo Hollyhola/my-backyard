@@ -8,9 +8,14 @@ import * as Vue from 'vue'
 export class logTime {
     name: 'logTime'
     //data
-    date: '';
-    totalTime: '';
-    comment: '';
+    data() {
+        return {
+            date: '',
+            totalTime: '',
+            comment: '',
+        }
+    }
+    
 
     save() {
          const plan = {

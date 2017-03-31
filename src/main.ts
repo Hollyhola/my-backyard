@@ -19,11 +19,11 @@ const routes = [
   {path: '/home', component: home},
   {
     path: '/time-entries',
-    component: timeEntries
-    // children: [{
-    //   path: 'log-time',
-    //   component: logTime
-    // }]
+    component: timeEntries,
+    children: [{
+      path: 'log-time',
+      component: logTime
+    }]
   }
 ]
 

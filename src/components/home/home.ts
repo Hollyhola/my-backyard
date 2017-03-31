@@ -6,4 +6,10 @@ import * as Vue from 'vue'
 })
 
 export class home {
+    data() {
+        return{
+            isactive: true
+            
+        }
+    }
 }

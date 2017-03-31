@@ -1,6 +1,7 @@
 <div class="jumbotron">
         <h1>任务追踪</h1>
-        <p>
+        <p v-bind:class="{active: isactive}">
+            111
             <strong>
                 <router-link to="/time-entries">创建一个任务</router-link>
             </strong>

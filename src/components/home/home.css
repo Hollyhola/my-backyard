@@ -6,3 +6,6 @@ h2 {
 li {
     color: red;
 }
+.active {
+    color: gray;
+}
